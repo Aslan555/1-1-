@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main ()
+{
+  double a;
+  double b;
+  double c;
+  double x, s, d;
+  cout << "введите а: ";
+  cin >> a;
+  cout << "введите b: ";
+  cin >> b;
+  cout << "введите c: ";
+  cin >> c;
+  if ((b * b - 4 * a * c) >= 0)
+    {
+      x = (-1 * b + sqrt (b * b - 4 * a * c)) / (2 * a);
+      cout << "первый корень равен:" << x << endl;
+      x = (-1 * b - sqrt (b * b - 4 * a * c)) / (2 * a);
+      cout << "второй корень равен:" << x << endl;
+    }
+  else
+  {
+      s = -1*b/(2*a);
+      d = sqrt (b * b - 4 * a * c) / (2 * a);
+      cout << "x"<< s <<"+-i"<< d;
+  }
+  return 0;
+    
+}
