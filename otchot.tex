@@ -1,0 +1,94 @@
+%% -*- coding: utf-8 -*-
+\documentclass[12pt,a4paper]{scrartcl} 
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{cmap}
+\begin{document}
+\section{Введение}
+\label{sec:intro}
+
+% Что должно быть во введении
+\begin{enumerate}
+ \item Написать приложение для вычисления корней квадратного уравнения (всех возможных вариантов и комплексности корней).
+ \item Пример кода, решающего данную задачу
+ \item Скриншот программы
+\end{enumerate}
+
+Пример приведен в пункте ~\ref{sec:exp} на стр.~\pageref{sec:exp}.
+
+\section{Ход работы}
+\label{sec:exp}
+
+\subsection{Код приложения}
+\label{sec:exp:code}
+\begin{verbatim}
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main ()
+{
+  double a;
+  double b;
+  double c;
+  double x, s, d;
+  cout << "введите а: ";
+  cin >> a;
+  cout << "введите b: ";
+  cin >> b;
+  cout << "введите c: ";
+  cin >> c;
+  if ((b * b - 4 * a * c) >= 0)
+    {
+      x = (-1 * b + sqrt (b * b - 4 * a * c)) / (2 * a);
+      cout << "первый корень равен:" << x << endl;
+      x = (-1 * b - sqrt (b * b - 4 * a * c)) / (2 * a);
+      cout << "второй корень равен:" << x << endl;
+    }
+  else
+  {
+      s = -1*b/(2*a);
+      d = sqrt (b * b - 4 * a * c) / (2 * a);
+      cout << "x"<< s <<"+-i"<< d;
+  }
+  return 0;
+    
+}
+\end{verbatim}
+
+\subsection{Примеры формул}
+\label{sec:mathexample}
+
+Решение квадратного уравнения \(ax^2+bx+c=0\):
+\begin{equation}\label{eq:solv}
+ x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\end{equation}
+
+Решение через комплексные числа~\eqref{eq:solv}.
+\begin{equation}\label{eq:solv}
+ x=\frac{-b\pm{i}\sqrt{b^2-4ac}}{2a}
+\end{equation}
+
+\section{Код после выполнения программы}
+\label{sec:picexample}
+\begin{figure}[h]
+	
+	\includegraphics[width=0.6\textwidth]{код.jpg}
+\end{figure}
+
+\section{Пример библиографических ссылок}
+
+Для написания «программы» необходимо 
+изучить~\cite{Marius}, для использования \LaTeX{} лучше
+почитать~\cite{Lvovsky-2003}, а для работы с Git~\cite{Git}.
+
+\begin{thebibliography}{9}
+\bibitem{Marius}Мариус Бансила. Решение задач на современном С++ \newblock --- Москва: Изд. ДМК, 2019 г. 295~с.
+\bibitem{Lvovsky-2003}Львовский С.М. Набор и верстка в системе \LaTeX{}. \newblock --- 3-е издание, исправленное и дополненное, 2003 г.
+\bibitem{Git} Скоттом Чаконом, Беном Штраубом Pro Git \newblock ---2-е издание 2014г.
+\end{thebibliography}
+
+\end{document}
